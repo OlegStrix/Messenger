@@ -1,83 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using RestSharp;
-using RestSharp.Serialization.Json;
 using Terminal.Gui;
+using System.Collections.Generic;
+using System.Net;
+using Newtonsoft.Json;
+using System.Text;
+using System.IO;
+using System.Net.Cache;
+using System.Timers;
 
 namespace DotChat
 {
-    // Класс сообщения
     [Serializable]
     public class Message
     {
-        public string username { get; set; } = "";
-        public string text { get; set; } = "";
-        public DateTime timestamp { get; set; }
-
-        public Message()
-        {
-        }
-
-        public Message(string username, string text)
-        {
-            this.username = username;
-            this.text = text;
-            this.timestamp = DateTime.UtcNow;
-        }
+        public string username = "";
+        public string text = "";
+        public DateTime timestamp;
     }
 
     class Program
     {
-        // Очередь сообщений
-        private static List<Message> messages = new List<Message>();
-
-        // Компоненты формы
         private static MenuBar menu;
         private static Window winMain;
         private static Window winMessages;
-        private static Label labelUser;
-        private static TextField fieldUsername;
+        private static Label labelUsername;
         private static Label labelMessage;
+        private static TextField fieldUsername;
         private static TextField fieldMessage;
         private static Button btnSend;
 
-        // Точка входа программы
+        private static List<Message> messages = new List<Message>();
+
         static void Main(string[] args)
         {
-            // Инициялизация консольного приложения
             Application.Init();
 
-            // Верхнеуровневый компонент
-            var top = Application.Top;
+            //ColorScheme colorDark = new ColorScheme();
+            //colorDark.Normal = new Terminal.Gui.Attribute(Color.White, Color.DarkGray);
 
-            // Компонент меню
-            menu = new MenuBar(new MenuBarItem[]
-            {
-                new MenuBarItem("_App", new MenuItem[]
-                {
+            // Создание верхнего меню приложения
+            menu = new MenuBar(new MenuBarItem[] {
+                new MenuBarItem("_App", new MenuItem[] {
                     new MenuItem("_Quit", "Close the app", Application.RequestStop),
                 }),
-            });
-            top.Add(menu);
+            })
+            {
+                X = 0,
+                Y = 0,
+                Width = Dim.Fill(),
+                Height = 1,
+            };
+            Application.Top.Add(menu);
 
-            // Компонент главной формы
+            // Создание главного окна
             winMain = new Window()
             {
-                Title = "DotChat",
-                // Позиция начала окна
                 X = 0,
-                Y = 1, //< Место под меню
-                // Авто растягивание по размерам терминала
+                Y = 1,
                 Width = Dim.Fill(),
-                Height = Dim.Fill()
+                Height = Dim.Fill(),
+                Title = "DotChat",
             };
-            top.Add(winMain);
+            //winMain.ColorScheme = colorDark;
+            Application.Top.Add(winMain);
 
-            // Компонент сообщений
+            // Создание окна с сообщениями
             winMessages = new Window()
             {
                 X = 0,
@@ -87,28 +74,19 @@ namespace DotChat
             };
             winMain.Add(winMessages);
 
-            // Текст "Пользователь"
-            labelUser = new Label()
+            // Создание надписи с username
+            labelUsername = new Label()
             {
                 X = 0,
                 Y = Pos.Bottom(winMain) - 5,
                 Width = 15,
                 Height = 1,
                 Text = "Username:",
+                TextAlignment = TextAlignment.Right,
             };
-            winMain.Add(labelUser);
+            winMain.Add(labelUsername);
 
-            // Поле ввода имени пользователя
-            fieldUsername = new TextField()
-            {
-                X = 15,
-                Y = Pos.Bottom(winMain) - 5,
-                Width = winMain.Width - 14,
-                Height = 1,
-            };
-            winMain.Add(fieldUsername);
-
-            // Текст "Сообщение"
+            // Создание надписи с message
             labelMessage = new Label()
             {
                 X = 0,
@@ -116,123 +94,121 @@ namespace DotChat
                 Width = 15,
                 Height = 1,
                 Text = "Message:",
+                TextAlignment = TextAlignment.Right,
             };
             winMain.Add(labelMessage);
 
-            // Поле ввода сообщения
+            // Создание поля ввода username
+            fieldUsername = new TextField()
+            {
+                X = 15,
+                Y = Pos.Bottom(winMain) - 5,
+                Width = winMain.Width - 15,
+                Height = 1,
+            };
+            winMain.Add(fieldUsername);
+
+            // Создание поля ввода message
             fieldMessage = new TextField()
             {
                 X = 15,
                 Y = Pos.Bottom(winMain) - 4,
-                Width = winMain.Width - 14,
+                Width = winMain.Width - 15,
                 Height = 1,
             };
             winMain.Add(fieldMessage);
 
-            // Кнопка отправки
+            // Создание кнопки отправки
             btnSend = new Button()
             {
-                X = Pos.Right(winMain) - 10 - 5,
+                X = Pos.Right(winMain) - 15,
                 Y = Pos.Bottom(winMain) - 4,
-                Width = 10,
+                Width = 15,
                 Height = 1,
-                Text = "  Send  ",
+                Text = "  SEND  ",
             };
+            btnSend.Clicked += OnBtnSendClick;
             winMain.Add(btnSend);
 
-            // Обработка клика по кнопке
-            btnSend.Clicked += OnBtnSendClick;
-
-            // Запуск цикла проверки обновлений сообщений
-            var updateLoop = new System.Timers.Timer();
+            // Создание цикла получения сообщений
+            int lastMsgID = 1;
+            Timer updateLoop = new Timer();
             updateLoop.Interval = 800;
-            int lastMsgID = 0;
-            updateLoop.Elapsed += (sender, eventArgs) =>
-            {
-                //messages.Add(new Message("TEST", "123"));
-                //UpdateMessages();
-
-                var msg = ClientGetMessage(lastMsgID);
+            updateLoop.Elapsed += (object sender, ElapsedEventArgs e) => {
+                Message msg = GetMessage(lastMsgID);
                 if (msg != null)
                 {
                     messages.Add(msg);
-                    UpdateMessages();
+                    MessagesUpdate();
                     lastMsgID++;
                 }
             };
             updateLoop.Start();
 
-            // Запуск приложения
             Application.Run();
-            Console.Clear();
         }
 
-        // При нажатии на кнопку отправки
+        // Реакция на клик кнопки
         static void OnBtnSendClick()
         {
-            if (fieldMessage.Text.ToString() != "" && fieldUsername.Text.ToString() != "")
+            if (fieldUsername.Text.Length != 0 && fieldMessage.Text.Length != 0)
             {
-                var msg = new Message(fieldUsername.Text.ToString(), fieldMessage.Text.ToString());
-                ClientSendMessage(msg);
-
-                // Добавление сообщений локально
-                // В этом нет необходимости, т.к. серв вернёт отправленное нами сообщение в цикле обновлений
-                // messages.Add(msg);                
-                // UpdateMessages();
-
+                Message msg = new Message()
+                {
+                    username = fieldUsername.Text.ToString(),
+                    text = fieldMessage.Text.ToString(),
+                };
+                SendMessage(msg);
                 fieldMessage.Text = "";
             }
         }
 
-        // Синхронизирует список сообщений с отображением
-        static void UpdateMessages()
+        // Синхронизирует список сообщений с представлением
+        static void MessagesUpdate()
         {
-            // Удаляем все компоненты сообщений
             winMessages.RemoveAll();
-            // Идём в обратном порядке и добавляе сообщения (вверху - самые новые)
             int offset = 0;
             for (var i = messages.Count - 1; i >= 0; i--)
             {
-                var msg = messages[i];
-                winMessages.Add(new View()
+                View msg = new View()
                 {
                     X = 0,
                     Y = offset,
                     Width = winMessages.Width,
                     Height = 1,
-                    Text = $"{msg.timestamp} > [{msg.username}] {msg.text}",
-                });
+                    Text = $"[{messages[i].username}] {messages[i].text}",
+                };
+                winMessages.Add(msg);
                 offset++;
             }
-            // Обвноялем отображение
             Application.Refresh();
         }
 
         // Отправляет сообщение на сервер
-        static void ClientSendMessage(Message msg)
+        static void SendMessage(Message msg)
         {
-            WebRequest request = WebRequest.Create("http://localhost:5000/api/chat");
-            request.Method = "POST";
+            WebRequest req = WebRequest.Create("http://localhost:5000/api/chat");
+            req.Method = "POST";
             string postData = JsonConvert.SerializeObject(msg);
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-            request.ContentType = "application/json";
-            request.ContentLength = byteArray.Length;
-            Stream dataStream = request.GetRequestStream();
-            dataStream.Write(byteArray, 0, byteArray.Length);
-            dataStream.Close();
+            byte[] bytes = Encoding.UTF8.GetBytes(postData);
+            req.ContentType = "application/json";
+            req.ContentLength = bytes.Length;
+            Stream reqStream = req.GetRequestStream();
+            reqStream.Write(bytes);
+            reqStream.Close();
 
-            request.GetResponse();
+            req.GetResponse();
         }
 
-        // Запускает цикл обновления сообщений
-        static Message ClientGetMessage(int id)
-        {
-            var req = WebRequest.CreateHttp($"http://localhost:5000/api/chat/{id}");
-            var resp = req.GetResponse();
-            var smsg = new StreamReader(resp.GetResponseStream()).ReadToEnd();
+        // Получает сообщение с сервера
+        static Message GetMessage(int id)
+        {        
+            WebRequest req = WebRequest.Create($"http://localhost:5000/api/chat/{id}");
+            req.Method = "GET";
+            WebResponse resp = req.GetResponse();
+            string smsg = new StreamReader(resp.GetResponseStream()).ReadToEnd();
 
             if (smsg == "Not found") return null;
-
             return JsonConvert.DeserializeObject<Message>(smsg);
         }
     }
