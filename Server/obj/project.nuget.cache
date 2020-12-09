@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/vfx94ELD35uRE3uKzgJRbsfcKymcbp70Z33DRLtdjjb1vkMycvJ9+bTzUFZJtDKbrDrZgOkefYMUV9XX0AIpg==",
+  "dgSpecHash": "SOXwJglAuOUqty+v43ZIgqybxDP1QPSinITPljDrohIwqf/wtmp+TVrWAMShFl4prkiRa2U9g8unl8r1RIQ8iw==",
   "success": true,
   "projectFilePath": "C:\\Users\\olego\\source\\repos\\OlegStrix\\Messenger\\Server\\Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\olego\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+    "C:\\Users\\olego\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
+    "C:\\Users\\olego\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
   "logs": []
 }
