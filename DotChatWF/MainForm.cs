@@ -105,8 +105,13 @@ namespace DotChatWF
       RegForm.Show();
       this.Visible = false;
     }
-  }
-  [Serializable]
+
+        private void fieldUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+    [Serializable]
     public class Message
     {
         public string username = "";
