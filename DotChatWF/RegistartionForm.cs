@@ -62,12 +62,12 @@ namespace DotChatWF
         }
         else
         {
-          MessageBox.Show("Такой пользователь уже зарегистрирован, обратитесь к администратору");
+          MessageBox.Show("Пользователь с таким именем уже существует");
         }
       }
         else
       {
-        MessageBox.Show("Passwords don't match");
+        MessageBox.Show("Мужик ты чего пароли забыл");
       }
 
     }
