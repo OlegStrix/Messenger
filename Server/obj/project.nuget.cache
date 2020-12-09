@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vzr4W543Pb2vXVuND2slER1A0lA8kPOKNoYUdmDZwnkA6oNByiN04pDwrMl/uw4XcOoIqzGwzrqEL6+AM2pIug==",
+  "dgSpecHash": "/vfx94ELD35uRE3uKzgJRbsfcKymcbp70Z33DRLtdjjb1vkMycvJ9+bTzUFZJtDKbrDrZgOkefYMUV9XX0AIpg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\olego\\source\\repos\\Messenger\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\olego\\source\\repos\\OlegStrix\\Messenger\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olego\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
   ],

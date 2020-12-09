@@ -149,11 +149,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\olego\\source\\repos\\Messenger\\Chat\\Chat.csproj",
+      "projectUniqueName": "C:\\Users\\olego\\source\\repos\\OlegStrix\\Messenger\\Chat\\Chat.csproj",
       "projectName": "Chat",
-      "projectPath": "C:\\Users\\olego\\source\\repos\\Messenger\\Chat\\Chat.csproj",
+      "projectPath": "C:\\Users\\olego\\source\\repos\\OlegStrix\\Messenger\\Chat\\Chat.csproj",
       "packagesPath": "C:\\Users\\olego\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\olego\\source\\repos\\Messenger\\Chat\\obj\\",
+      "outputPath": "C:\\Users\\olego\\source\\repos\\OlegStrix\\Messenger\\Chat\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\olego\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -210,7 +210,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

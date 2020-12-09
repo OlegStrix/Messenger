@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AIav42+yXQowph6AHIsTirRDvq/eveoYIUckcDhPw3tU1XB2Y/YsAXzvaDJpYU3ZhinjTWSwk0axzpCWADTXbg==",
+  "dgSpecHash": "Upe07fWkov1AI2WEF71Fv5pxY6NFtOnJCYQCXcwXimXVfOx+z7oDzBf8YXLnU6ZRKblzNFPwKoCwDOM28inNIg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\olego\\source\\repos\\Messenger\\Chat\\Chat.csproj",
+  "projectFilePath": "C:\\Users\\olego\\source\\repos\\OlegStrix\\Messenger\\Chat\\Chat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olego\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
     "C:\\Users\\olego\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
