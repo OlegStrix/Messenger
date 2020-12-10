@@ -31,7 +31,7 @@ namespace DotChatWF
             StreamReader sr = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("utf-8"));
             string content = sr.ReadToEnd();
             int int_token = Convert.ToInt32(content, 10);
-            */
+            *//*
             if (int_token == -1)
             {
                 MessageBox.Show("Он верный!");
@@ -45,7 +45,7 @@ namespace DotChatWF
             {
                 MessageBox.Show("Такого пользователя не существует");
             }
-            
+            */
             btnLogin.Show();
             this.Visible = false;
         }

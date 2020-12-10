@@ -37,7 +37,6 @@ namespace DotChatWF
             Message msg = GetMessage(lastMsgID);
             if (msg != null) {
                 listMessages.Items.Add($"[{msg.username}] {msg.text}");//Нужно просто вывести через фор листмессажес в нужном окне
-                this.Text = "asdasd";
                 //Тут нужно добавить функцию, которая выводит сообщение в консоль
                 lastMsgID++;
             }
@@ -91,7 +90,7 @@ namespace DotChatWF
                 req.Method = "GET";
                 WebResponse resp = req.GetResponse();
                 string smsg = new StreamReader(resp.GetResponseStream()).ReadToEnd();
-                 this.Text = "asdasd";
+                 
                  if (smsg == "Not found") return null;
                 return JsonConvert.DeserializeObject<Message>(smsg);
  
