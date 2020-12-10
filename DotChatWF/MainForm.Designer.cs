@@ -43,11 +43,12 @@
             // listMessages
             // 
             this.listMessages.FormattingEnabled = true;
-            this.listMessages.Location = new System.Drawing.Point(9, 10);
+            this.listMessages.Location = new System.Drawing.Point(12, 2);
             this.listMessages.Margin = new System.Windows.Forms.Padding(2);
             this.listMessages.Name = "listMessages";
             this.listMessages.Size = new System.Drawing.Size(583, 277);
             this.listMessages.TabIndex = 0;
+            this.listMessages.SelectedIndexChanged += new System.EventHandler(this.listMessages_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -58,6 +59,7 @@
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -91,6 +93,7 @@
             this.fieldMessage.Name = "fieldMessage";
             this.fieldMessage.Size = new System.Drawing.Size(391, 34);
             this.fieldMessage.TabIndex = 4;
+            this.fieldMessage.TextChanged += new System.EventHandler(this.fieldMessage_TextChanged);
             // 
             // btnSend
             // 

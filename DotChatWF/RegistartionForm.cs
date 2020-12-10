@@ -80,7 +80,11 @@ namespace DotChatWF
     private void RegistartionForm_FormClosed(object sender, FormClosedEventArgs e)
     {
       mForm.Show();
-      //this.Visible = false;
     }
-  }
+
+        private void fieldUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

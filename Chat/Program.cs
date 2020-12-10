@@ -135,7 +135,7 @@ namespace DotChat
             Timer updateLoop = new Timer();
             updateLoop.Interval = 800;
             updateLoop.Elapsed += (object sender, ElapsedEventArgs e) => {
-                Message msg = GetMessage(lastMsgID);
+               Message msg = GetMessage(lastMsgID);                                                                                      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if (msg != null)
                 {
                     messages.Add(msg);
@@ -172,7 +172,7 @@ namespace DotChat
             {
                 View msg = new View()
                 {
-                    X = 0,
+                    X = 50,
                     Y = offset,
                     Width = winMessages.Width,
                     Height = 1,
@@ -199,7 +199,7 @@ namespace DotChat
 
             req.GetResponse();
         }
-
+        
         // Получает сообщение с сервера
         static Message GetMessage(int id)
         {        
@@ -211,5 +211,6 @@ namespace DotChat
             if (smsg == "Not found") return null;
             return JsonConvert.DeserializeObject<Message>(smsg);
         }
+        
     }
 }

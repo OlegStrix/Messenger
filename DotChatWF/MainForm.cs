@@ -18,41 +18,57 @@ namespace DotChatWF
     {
         
         // Глобальные переменные
-        int lastMsgID = 0;
+        int lastMsgID = 1;
         AuthentificationForm AuthForm;
         RegistartionForm RegForm;
         public TextBox TextBox_username;
+        public ListBox ListBox_listMessages;
         public int int_token;
 
-
+        
         public MainForm()
         {
             InitializeComponent();
         }
-
+        
         private void updateLoop_Tick(object sender, EventArgs e)
         {
+            
             Message msg = GetMessage(lastMsgID);
             if (msg != null) {
-                listMessages.Items.Add($"[{msg.username}] {msg.text}");
+                listMessages.Items.Add($"[{msg.username}] {msg.text}");//Нужно просто вывести через фор листмессажес в нужном окне
+                this.Text = "asdasd";
+                //Тут нужно добавить функцию, которая выводит сообщение в консоль
                 lastMsgID++;
             }
+            
         }
-
+        
+        //Отправка сообщения кликом на кнопку Send
         private void btnSend_Click(object sender, EventArgs e) {
-            if (int_token == 0)
-      {
-        MessageBox.Show("Please log in or register");
-      }
-      else 
-      { 
-            SendMessage(new Message() { 
-                username = fieldUsername.Text,
-                text = fieldMessage.Text,
-            });
-      }
-    }
 
+                if (int_token == 0)
+                {
+                MessageBox.Show("Please log in or register");
+                }
+            else 
+            {
+                SendMessage(new Message()
+                {
+                    username = fieldUsername.Text,
+                    text = fieldMessage.Text,                   
+                    
+
+                }) ;
+                ListBox_listMessages = listMessages;
+
+                updateLoop_Tick(sender, e);
+
+                
+
+            }
+        }
+        
         // Отправляет сообщение на сервер
         void SendMessage(Message msg)
         {
@@ -71,42 +87,61 @@ namespace DotChatWF
         // Получает сообщение с сервера
         Message GetMessage(int id)
         {
-            try
-            {
                 WebRequest req = WebRequest.Create($"http://localhost:5000/api/chat/{id}");
+                req.Method = "GET";
                 WebResponse resp = req.GetResponse();
                 string smsg = new StreamReader(resp.GetResponseStream()).ReadToEnd();
-
-                if (smsg == "Not found") return null;
+                 this.Text = "asdasd";
+                 if (smsg == "Not found") return null;
                 return JsonConvert.DeserializeObject<Message>(smsg);
-            } catch {
-                return null;
-            }
+ 
         }
 
     private void btnAuth_Click(object sender, EventArgs e)
     {
-      AuthForm.Show();
-      this.Visible = false;
+        AuthForm.Show();
+        this.Visible = false;
     }
 
     private void MainForm_Load(object sender, EventArgs e)
     {
-      int_token = 0;
-      AuthForm = new AuthentificationForm();
-      RegForm = new RegistartionForm();
-      TextBox_username = fieldUsername;
+        int_token = 0;
+        AuthForm = new AuthentificationForm();
+        RegForm = new RegistartionForm();
+        TextBox_username = fieldUsername;
+        
 
-    }
+        
 
-    private void btnReg_Click(object sender, EventArgs e)
-    {
-      RegForm.mForm = this;
-      RegForm.Show();
-      this.Visible = false;
-    }
+
+        }
+
+
+        private void btnReg_Click(object sender, EventArgs e)
+        {
+            RegForm.mForm = this;
+            RegForm.Show();
+            this.Visible = false;
+        }
 
         private void fieldUsername_TextChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        //окно вывода сообщений
+        private void listMessages_SelectedIndexChanged(object sender, EventArgs e)//Тут получение сообщений от сервака
+        {
+            
+        }
+
+        private void fieldMessage_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -116,6 +151,7 @@ namespace DotChatWF
     {
         public string username = "";
         public string text = "";
+        public string list = "";
         public DateTime timestamp;
     }
 }
