@@ -164,7 +164,7 @@ namespace DotChat
         }
 
         // Синхронизирует список сообщений с представлением
-        static void MessagesUpdate()
+        static void MessagesUpdate()//Вот тут вывод сообщения в консоль
         {
             winMessages.RemoveAll();
             int offset = 0;
@@ -172,7 +172,7 @@ namespace DotChat
             {
                 View msg = new View()
                 {
-                    X = 50,
+                    X = 0,
                     Y = offset,
                     Width = winMessages.Width,
                     Height = 1,

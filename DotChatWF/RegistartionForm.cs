@@ -45,7 +45,7 @@ namespace DotChatWF
         auth_data.password = pass1;
         string postData = JsonConvert.SerializeObject(auth_data);
         req.ContentType = "application/json";
-        StreamWriter reqStream = new StreamWriter(req.GetRequestStream());
+        StreamWriter reqStream = new StreamWriter(req.GetRequestStream());       
         reqStream.Write(postData);
         reqStream.Close();
         HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
