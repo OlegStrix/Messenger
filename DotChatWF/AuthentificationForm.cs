@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,44 +11,65 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace DotChatWF
 {
   public partial class AuthentificationForm : Form
   {
+    public class AuthData
+    {
+        public string login { get; set; }
+        public string password { get; set; }
+    }
+        public MainForm mForm;
     public AuthentificationForm()
     {
       InitializeComponent();
-      
     }
+    public void LoadJson()
+        {
+            using(StreamReader r = new StreamReader("data_sessions.json"))
+            {
+                string json = r.ReadToEnd();
+                List<Items> items = JsonConvert.DeserializeObject<List<Items>>(json);
+            }
+        }
+    public class Items
+        {
+            public int token;
+            public string login;
+            public string password;
+        }
 
     private void button1_Click(object sender, EventArgs e)
     {
             string name = textBox1.Text;
             string password = textBox2.Text;
             WebRequest req = WebRequest.Create("http://localhost:5000/api/log");
-            //req.ContentType = "application/json";
-            /*
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            StreamReader sr = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("utf-8"));
-            string content = sr.ReadToEnd();
-            int int_token = Convert.ToInt32(content, 10);
-            *//*
-            if (int_token == -1)
+            AuthData auth_data = new AuthData();
+            auth_data.login = textBox1.Text;
+            auth_data.password = textBox2.Text;
+            //auth_data.login = fieldUserName.Text;
+            Items auth = new Items();
+            if (name == auth.login)
             {
-                MessageBox.Show("Он верный!");
-
+                if (password == auth.password)
+                {
+                    mForm.TextBox_username.Text = auth_data.login;
+                    mForm.Show();
+                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid password");
+                }
             }
-            if (int_token == 0)
+            else
             {
-                MessageBox.Show("Вы ввели неверный пароль");
+                MessageBox.Show("User is not found");
             }
-            if (int_token == -2)
-            {
-                MessageBox.Show("Такого пользователя не существует");
-            }
-            */
-            btnLogin.Show();
-            this.Visible = false;
+            
+            
         }
 
         private void AuthentificationForm_Load(object sender, EventArgs e)
