@@ -21,7 +21,7 @@ namespace DotChatWF
       public string password { get; set; }
     }
 
-    public MainForm mForm; 
+        public MainForm mForm;
     public RegistartionForm()
     {
       InitializeComponent();
@@ -29,7 +29,7 @@ namespace DotChatWF
 
     private void RegistartionForm_Load(object sender, EventArgs e)
     {
-
+            
     }
 
     private void btnReg2serv_Click(object sender, EventArgs e)
@@ -86,5 +86,5 @@ namespace DotChatWF
         {
 
         }
-    }
+  }
 }

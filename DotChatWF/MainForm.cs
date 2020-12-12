@@ -98,6 +98,8 @@ namespace DotChatWF
 
     private void btnAuth_Click(object sender, EventArgs e)
     {
+            AuthForm.MForm = this;
+        
         AuthForm.Show();
         this.Visible = false;
     }
@@ -130,7 +132,7 @@ namespace DotChatWF
         }
 
         //окно вывода сообщений
-        private void listMessages_SelectedIndexChanged(object sender, EventArgs e)//Тут получение сообщений от сервака
+        private void listMessages_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
