@@ -14,7 +14,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-
 namespace DotChatWF
 {
   public partial class AuthentificationForm : Form
@@ -56,12 +55,12 @@ namespace DotChatWF
                 }
                 else
                 {
-                    MessageBox.Show("Неверный пароль");
+                    MessageBox.Show("Incorrect password");
                 }
             }
             else
             {
-                MessageBox.Show("Пользователь не найден");
+                MessageBox.Show("User is not found");
             }   
         }
 

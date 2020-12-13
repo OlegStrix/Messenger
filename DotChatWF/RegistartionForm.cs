@@ -62,12 +62,12 @@ namespace DotChatWF
         }
         else
         {
-          MessageBox.Show("Пользователь с таким именем уже существует");
+          MessageBox.Show("A user with the same name already exists");
         }
       }
         else
       {
-        MessageBox.Show("Мужик ты чего пароли забыл");
+        MessageBox.Show("Incorrect password entered");
       }
 
     }
