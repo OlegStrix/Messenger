@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -98,6 +99,7 @@ namespace DotChatWF
 
     private void btnAuth_Click(object sender, EventArgs e)
     {
+           
             AuthForm.MForm = this;
         
         AuthForm.Show();
@@ -106,16 +108,19 @@ namespace DotChatWF
 
     private void MainForm_Load(object sender, EventArgs e)
     {
+        string Height1 = File.ReadLines("Config.Json").Skip(4).First();
+        string Width1 = File.ReadLines("Config.Json").Skip(7).First();
+        int W = Convert.ToInt32(Width1);
+        int H = Convert.ToInt32(Height1);
+        this.Size = new Size(W, H);
+        
         int_token = 0;
         AuthForm = new AuthentificationForm();
         RegForm = new RegistartionForm();
         TextBox_username = fieldUsername;
         
-
-        
-
-
         }
+
 
 
         private void btnReg_Click(object sender, EventArgs e)
