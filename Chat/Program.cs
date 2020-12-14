@@ -7,6 +7,7 @@ using System.Text;
 using System.IO;
 using System.Net.Cache;
 using System.Timers;
+using System.Linq;
 
 namespace DotChat
 {
@@ -132,8 +133,10 @@ namespace DotChat
 
             // Создание цикла получения сообщений
             int lastMsgID = 1;
+            string Timing = File.ReadLines("UpdateLoop.Json").Skip(4).First();
             Timer updateLoop = new Timer();
-            updateLoop.Interval = 800;
+            int Interval = Convert.ToInt32(Timing);
+            updateLoop.Interval = Interval;
             updateLoop.Elapsed += (object sender, ElapsedEventArgs e) => {
                Message msg = GetMessage(lastMsgID);                                                                                      
                 if (msg != null)
