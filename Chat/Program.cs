@@ -135,7 +135,7 @@ namespace DotChat
             Timer updateLoop = new Timer();
             updateLoop.Interval = 800;
             updateLoop.Elapsed += (object sender, ElapsedEventArgs e) => {
-               Message msg = GetMessage(lastMsgID);                                                                                      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+               Message msg = GetMessage(lastMsgID);                                                                                      
                 if (msg != null)
                 {
                     messages.Add(msg);
@@ -155,6 +155,7 @@ namespace DotChat
             {
                 Message msg = new Message()
                 {
+
                     username = fieldUsername.Text.ToString(),
                     text = fieldMessage.Text.ToString(),
                 };
@@ -164,7 +165,7 @@ namespace DotChat
         }
 
         // Синхронизирует список сообщений с представлением
-        static void MessagesUpdate()//Вот тут вывод сообщения в консоль
+        static void MessagesUpdate()
         {
             winMessages.RemoveAll();
             int offset = 0;
@@ -182,6 +183,12 @@ namespace DotChat
                 offset++;
             }
             Application.Refresh();
+            for (var i = messages.Count - 1; i >= 0; i-=messages.Count)
+            {
+                File.AppendAllText("History.txt", messages[i].username.ToString() + ": ");
+                File.AppendAllText("History.txt", messages[i].text.ToString() + "\n");
+
+            }
         }
 
         // Отправляет сообщение на сервер
