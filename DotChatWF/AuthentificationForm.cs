@@ -12,11 +12,24 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json.Converters;
 
 
 namespace DotChatWF
 {
-  public partial class AuthentificationForm : Form
+    public static class JsonExtensions
+    {
+        public static T ToObject<T>(this string jsonText)
+        {
+            return JsonConvert.DeserializeObject<T>(jsonText);
+        }
+
+        public static string ToJson<T>(this T obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+    }
+    public partial class AuthentificationForm : Form
   {
         public class AuthData
         {
@@ -30,38 +43,123 @@ namespace DotChatWF
             InitializeComponent();
         }
 
+        public partial class Temperatures
+        {
+            [JsonProperty("list_tokens")]
+            public ListToken[] ListTokens { get; set; }
+        }
+
+        public partial class ListToken
+        {
+            [JsonProperty("token")]
+            public long Token { get; set; }
+
+            [JsonProperty("login")]
+            public string Login { get; set; }
+
+            [JsonProperty("password")]
+            public string Password { get; set; }
+        }
+        
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             string name = textBox1.Text;
             string password = textBox2.Text;
-            string text = File.ReadAllText("data_sessions.json");
-            bool result_name = Regex.IsMatch(text, name);
-            bool result_password = Regex.IsMatch(text, password);
+            string file = @"C:\Users\olego\source\repos\OlegStrix\Messenger\Server\data_sessions.json";
+            string text;
+            int k = 0;
+            using (StreamReader sr = new StreamReader(file))
+                {
+                    text = sr.ReadToEnd();
+                }
+                var m = JsonExtensions.ToObject<Temperatures>(text);
 
-            if(result_name)
-            {
-                if (result_password)
+
+                for (int i = 0; i != m.ListTokens.Count()-1; i++)
                 {
-                    WebRequest req = WebRequest.Create("http://localhost:5000/api/auth");
-                    AuthData auth_data = new AuthData();
-                    req.ContentType = "application/json";
-                    auth_data.login = name;
-                    auth_data.password = password;
-                    string postData = JsonConvert.SerializeObject(auth_data);
-                    MForm.TextBox_username.Text = name;
-                    MForm.Show();
-                    this.Visible = false;
-                    MForm.int_token = -1;
+                    if (name == m.ListTokens[i].Login)
+                    {
+                        if (password == m.ListTokens[i].Password)
+                        {
+                            k = 1;
+                            AuthData auth_data = new AuthData();
+                            auth_data.login = name;
+                            auth_data.password = password;
+                            MForm.TextBox_username.Text = name;
+                            MForm.Show();
+                            this.Visible = false;
+                            MForm.int_token = -1;
+                            
+                        }
+                        else
+                        {
+                            k = 1;
+                            MessageBox.Show("Incorrect password");
+                        }
+
+                    }
                 }
-                else
+
+                if (k == 0)
                 {
-                    MessageBox.Show("Incorrect password");
+                    MessageBox.Show("User not found");
                 }
-            }
-            else
+
+            //string h = Convert.ToString(m.ListTokens[2].Login);
+            //MessageBox.Show(h);
+            /*
+            foreach(var u in m.ListTokens)
             {
-                MessageBox.Show("User is not found");
-            }   
+                if (name == u.Login)
+                {
+                    MessageBox.Show("test");
+                }
+            }*/
+            //MessageBox.Show(text);
+            
+
+
+            //char[] test;
+            //using (StreamReader sr = new StreamReader(file))
+            //{
+            //    text = sr.ReadToEnd();
+            //}
+
+            //MessageBox.Show(text);
+
+            ////string[] massiv;
+            ////var ex = JsonConvert.DeserializeObject<ListTokens>(text);
+
+
+            //dynamic jsonArray = JArray.Parse(text);
+            //dynamic targetJsonObjects = jsonArray[1];
+            //MessageBox.Show("Хератень"+targetJsonObjects);
+
+            //// MessageBox.Show("ывот она хренатень" + ex.login);
+
+
+
+
+            ////string m = Convert.ToString(stats.Count());
+
+
+
+            ///*
+            //using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
+            //{
+            //    ListTokens newList = JsonConvert.DeserializeObject<ListTokens>(text);
+            //    newList.login = "2";
+            //}
+
+            //ListTokens list_tokens = new ListTokens();
+            //list_tokens.login.
+
+            //*/
+
+
+
         }
 
 

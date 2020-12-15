@@ -19,7 +19,6 @@ C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\bin\Debug\DotChatWF.pd
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\bin\Debug\Newtonsoft.Json.dll
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\bin\Debug\Newtonsoft.Json.xml
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.csprojAssemblyReference.cache
-C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.AuthentificationForm.resources
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.MainForm.resources
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.Properties.Resources.resources
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.RegistartionForm.resources
@@ -28,3 +27,4 @@ C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.cs
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.csproj.CopyComplete
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.exe
 C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.pdb
+C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\obj\Debug\DotChatWF.JsonExtensions.resources
