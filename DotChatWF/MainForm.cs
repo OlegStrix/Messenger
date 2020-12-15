@@ -23,7 +23,6 @@ namespace DotChatWF
         AuthentificationForm AuthForm;
         RegistartionForm RegForm;
         public TextBox TextBox_username;
-        public ListBox ListBox_listMessages;
         public int int_token;
 
         
@@ -60,7 +59,7 @@ namespace DotChatWF
                     
 
                 }) ;
-                ListBox_listMessages = listMessages;
+                
 
                 updateLoop_Tick(sender, e);
 
@@ -87,13 +86,17 @@ namespace DotChatWF
         // Получает сообщение с сервера
         Message GetMessage(int id)
         {
+            try
+            {
                 WebRequest req = WebRequest.Create($"http://localhost:5000/api/chat/{id}");
                 req.Method = "GET";
                 WebResponse resp = req.GetResponse();
                 string smsg = new StreamReader(resp.GetResponseStream()).ReadToEnd();
-                 
-                 if (smsg == "Not found") return null;
+
+                if (smsg == "Not found") return null;
                 return JsonConvert.DeserializeObject<Message>(smsg);
+            }
+            catch { return null; }
  
         }
 
@@ -157,7 +160,6 @@ namespace DotChatWF
     {
         public string username = "";
         public string text = "";
-        public string list = "";
         public DateTime timestamp;
     }
 }
