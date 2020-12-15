@@ -71,22 +71,20 @@ namespace DotChatWF
             string text;
             int k = 0;
             using (StreamReader sr = new StreamReader(file))
-                {
-                    text = sr.ReadToEnd();
-                }
+            {
+                text = sr.ReadToEnd();
+            }
+
                 var m = JsonExtensions.ToObject<Temperatures>(text);
-
-
-                for (int i = 0; i != m.ListTokens.Count()-1; i++)
+                WebRequest req = WebRequest.Create("http://localhost:/api/auth");
+                
+                for (int i = 0; i != m.ListTokens.Count(); i++)
                 {
                     if (name == m.ListTokens[i].Login)
                     {
                         if (password == m.ListTokens[i].Password)
                         {
                             k = 1;
-                            AuthData auth_data = new AuthData();
-                            auth_data.login = name;
-                            auth_data.password = password;
                             MForm.TextBox_username.Text = name;
                             MForm.Show();
                             this.Visible = false;
@@ -106,59 +104,6 @@ namespace DotChatWF
                 {
                     MessageBox.Show("User not found");
                 }
-
-            //string h = Convert.ToString(m.ListTokens[2].Login);
-            //MessageBox.Show(h);
-            /*
-            foreach(var u in m.ListTokens)
-            {
-                if (name == u.Login)
-                {
-                    MessageBox.Show("test");
-                }
-            }*/
-            //MessageBox.Show(text);
-            
-
-
-            //char[] test;
-            //using (StreamReader sr = new StreamReader(file))
-            //{
-            //    text = sr.ReadToEnd();
-            //}
-
-            //MessageBox.Show(text);
-
-            ////string[] massiv;
-            ////var ex = JsonConvert.DeserializeObject<ListTokens>(text);
-
-
-            //dynamic jsonArray = JArray.Parse(text);
-            //dynamic targetJsonObjects = jsonArray[1];
-            //MessageBox.Show("Хератень"+targetJsonObjects);
-
-            //// MessageBox.Show("ывот она хренатень" + ex.login);
-
-
-
-
-            ////string m = Convert.ToString(stats.Count());
-
-
-
-            ///*
-            //using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
-            //{
-            //    ListTokens newList = JsonConvert.DeserializeObject<ListTokens>(text);
-            //    newList.login = "2";
-            //}
-
-            //ListTokens list_tokens = new ListTokens();
-            //list_tokens.login.
-
-            //*/
-
-
 
         }
 
