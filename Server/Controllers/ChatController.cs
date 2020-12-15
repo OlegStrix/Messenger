@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -36,9 +37,8 @@ namespace Server.Controllers
         public void Post([FromBody] message msg)
         {
             Program.ms.Add(msg);
-            Console.WriteLine($"{msg.username}:  {msg.text} ({Program.ms.messages.Count})");
+            Console.WriteLine($"{msg.username}:  {msg.text}");
+
         }
-
-
     }
 }

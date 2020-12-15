@@ -23,6 +23,7 @@ namespace DotChatWF
         AuthentificationForm AuthForm;
         RegistartionForm RegForm;
         public TextBox TextBox_username;
+        public ListBox ListBox_listMessages;
         public int int_token;
 
         
@@ -36,8 +37,8 @@ namespace DotChatWF
             
             Message msg = GetMessage(lastMsgID);
             if (msg != null) {
-                listMessages.Items.Add($"[{msg.username}] {msg.text}");//Нужно просто вывести через фор листмессажес в нужном окне
-                //Тут нужно добавить функцию, которая выводит сообщение в консоль
+                listMessages.Items.Add($"[{msg.username}]: {msg.text}");//Нужно просто вывести через фор листмессажес в нужном окне
+                                                                       //Тут нужно добавить функцию, которая выводит сообщение в консоль
                 lastMsgID++;
             }
             
@@ -52,18 +53,21 @@ namespace DotChatWF
                 }
             else 
             {
-                SendMessage(new Message()
+                if (fieldMessage.Text.Length != 0)
                 {
-                    username = fieldUsername.Text,
-                    text = fieldMessage.Text,                   
-                    
+                    SendMessage(new Message()
+                    {
+                        username = fieldUsername.Text,
+                        text = fieldMessage.Text,
 
-                }) ;
-                
+
+                    });
+                }
+                ListBox_listMessages = listMessages;
 
                 updateLoop_Tick(sender, e);
 
-                
+
 
             }
         }
@@ -97,7 +101,6 @@ namespace DotChatWF
                 return JsonConvert.DeserializeObject<Message>(smsg);
             }
             catch { return null; }
- 
         }
 
     private void btnAuth_Click(object sender, EventArgs e)
@@ -160,6 +163,7 @@ namespace DotChatWF
     {
         public string username = "";
         public string text = "";
+        public string list = "";
         public DateTime timestamp;
     }
 }

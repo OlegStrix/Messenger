@@ -98,6 +98,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AuthentificationForm";
             this.Text = "AuthentificationForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AuthentificationForm_Closed);
             this.Load += new System.EventHandler(this.AuthentificationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

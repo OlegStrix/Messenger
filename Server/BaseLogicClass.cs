@@ -35,16 +35,16 @@ namespace Server
 
     public void Add(message ms)
     {
+      File.AppendAllText("History.txt", ms.username + ": ");
+      File.AppendAllText("History.txt", ms.text + "\n");
       ms.timestamp = DateTime.UtcNow;
       messages.Add(ms);
-      Console.WriteLine(messages.Count);
     }
 
     public void Add(string username, string text)
     {
       message msg = new message(username, text);
       messages.Add(msg);
-      Console.WriteLine(messages.Count);
     }
 
     public message Get(int id)
@@ -93,17 +93,6 @@ namespace Server
   public class SessionsClass
   {
     public List<tokens> list_tokens = new List<tokens>();
-
-    public void addValera()
-    {
-      Random rand = new Random();
-      int int_token = rand.Next(1000 * 1000, 10 * 1000 * 1000);
-      tokens token_record = new tokens(int_token, "Valera", "UWP");
-      token_record.login = "Valera";
-      token_record.password = "UWP";
-      token_record.token = int_token;
-      list_tokens.Add(token_record);
-    }
 
     public int GenToken()
     {
@@ -166,7 +155,6 @@ namespace Server
       return -1;
     }
 
-
     public void SaveToFile(string filename = "data_sessions.json")
     {
       if (File.Exists(filename))
@@ -189,7 +177,7 @@ namespace Server
       }
 
     }
-
+    
     public void LoadFromFile(string filename = "data_sessions.json")
     {
       long size = 0;

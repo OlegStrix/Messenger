@@ -186,12 +186,7 @@ namespace DotChat
                 offset++;
             }
             Application.Refresh();
-            for (var i = messages.Count - 1; i >= 0; i-=messages.Count)
-            {
-                File.AppendAllText("History.txt", messages[i].username.ToString() + ": ");
-                File.AppendAllText("History.txt", messages[i].text.ToString() + "\n");
-
-            }
+  
         }
 
         // Отправляет сообщение на сервер
