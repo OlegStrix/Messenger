@@ -37,8 +37,7 @@ namespace DotChatWF
             
             Message msg = GetMessage(lastMsgID);
             if (msg != null) {
-                listMessages.Items.Add($"[{msg.username}]: {msg.text}");//Нужно просто вывести через фор листмессажес в нужном окне
-                                                                       //Тут нужно добавить функцию, которая выводит сообщение в консоль
+                listMessages.Items.Add($"[{DateTime.Now.ToShortTimeString()}] [{msg.username}]: {msg.text}");
                 lastMsgID++;
             }
             

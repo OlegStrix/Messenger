@@ -17,7 +17,6 @@ namespace Server.Controllers
     public int Post([FromBody] AuthData auth_data)
     {
       int int_token = Program.Sessions.registration(auth_data);
-      Console.WriteLine(int_token);
       return int_token;
     }
   }
