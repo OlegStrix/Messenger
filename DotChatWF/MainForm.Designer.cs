@@ -107,11 +107,15 @@
             // 
             // btnSend
             // 
-            this.btnSend.BackColor = System.Drawing.Color.White;
-            this.btnSend.Location = new System.Drawing.Point(483, 304);
+            this.btnSend.BackColor = System.Drawing.Color.Transparent;
+            this.btnSend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSend.BackgroundImage")));
+            this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSend.ForeColor = System.Drawing.Color.White;
+            this.btnSend.Location = new System.Drawing.Point(498, 305);
             this.btnSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(108, 89);
+            this.btnSend.Size = new System.Drawing.Size(93, 88);
             this.btnSend.TabIndex = 5;
             this.btnSend.Text = "SEND";
             this.btnSend.UseVisualStyleBackColor = false;
