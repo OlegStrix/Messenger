@@ -40,7 +40,6 @@ namespace DotChatWF
                 listMessages.Items.Add($"[{DateTime.Now.ToShortTimeString()}] [{msg.username}]: {msg.text}");
                 lastMsgID++;
             }
-            
         }
         
         //Отправка сообщения кликом на кнопку Send
@@ -71,6 +70,10 @@ namespace DotChatWF
         // Отправляет сообщение на сервер
         void SendMessage(Message msg)
         {
+            DateTime dt1 = DateTime.Now;
+            DateTime dt2 = new DateTime(DateTime.Now.Year + 1, 1, 1, 0, 0, 0, 1);
+            TimeSpan ts = dt2 - dt1;
+            listBox1.Items.Add($"Осталось {ts.Days} д, {ts.Hours} ч, {ts.Minutes} м, {ts.Seconds} с до НГ");
             WebRequest req = WebRequest.Create("http://localhost:5000/api/chat");
             req.Method = "POST";
             string postData = JsonConvert.SerializeObject(msg);
@@ -100,8 +103,7 @@ namespace DotChatWF
         }
 
     private void btnAuth_Click(object sender, EventArgs e)
-    {
-           
+    {    
         AuthForm.MForm = this;
         AuthForm.Show();
         this.Visible = false;
@@ -137,7 +139,6 @@ namespace DotChatWF
 
         }
 
-        //окно вывода сообщений
         private void listMessages_SelectedIndexChanged(object sender, EventArgs e)
         {
             

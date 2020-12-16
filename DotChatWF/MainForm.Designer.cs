@@ -157,10 +157,10 @@
             this.listBox1.BackColor = System.Drawing.Color.White;
             this.listBox1.ForeColor = System.Drawing.Color.Black;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(347, 10);
+            this.listBox1.Location = new System.Drawing.Point(311, 10);
             this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(250, 290);
+            this.listBox1.Size = new System.Drawing.Size(286, 290);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
