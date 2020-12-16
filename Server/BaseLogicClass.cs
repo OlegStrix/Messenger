@@ -46,19 +46,17 @@ namespace Server
       message msg = new message(username, text);
       messages.Add(msg);
     }
-
+    
     public message Get(int id)
     {
       return messages.ElementAt(id);
     }
 
-
     public int GetCountMessages()
     {
       return messages.Count;
     }
-
-
+    
     public MessagesClass()
     {
       messages.Clear();
@@ -113,10 +111,7 @@ namespace Server
           login_exist = true;
           if (item.password == password)
           {
-            int token = GenToken();
-            tokens record_token = new tokens(token, login, password);
-            list_tokens[row_num].token = token;
-            //list_tokens.Add(record_token);
+            int token = item.token;
             Console.WriteLine($"Аутификация успешно login: {login} password: {password} token: {token}");
             return token;
           }

@@ -36,9 +36,6 @@ namespace DotChat
         {
             Application.Init();
 
-            //ColorScheme colorDark = new ColorScheme();
-            //colorDark.Normal = new Terminal.Gui.Attribute(Color.White, Color.DarkGray);
-
             // Создание верхнего меню приложения
             menu = new MenuBar(new MenuBarItem[] {
                 new MenuBarItem("_App", new MenuItem[] {
@@ -186,7 +183,6 @@ namespace DotChat
                 offset++;
             }
             Application.Refresh();
-  
         }
 
         // Отправляет сообщение на сервер

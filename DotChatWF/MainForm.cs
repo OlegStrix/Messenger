@@ -66,9 +66,6 @@ namespace DotChatWF
                 ListBox_listMessages = listMessages;
 
                 updateLoop_Tick(sender, e);
-
-
-
             }
         }
         
@@ -106,8 +103,7 @@ namespace DotChatWF
     private void btnAuth_Click(object sender, EventArgs e)
     {
            
-            AuthForm.MForm = this;
-        
+        AuthForm.MForm = this;
         AuthForm.Show();
         this.Visible = false;
     }

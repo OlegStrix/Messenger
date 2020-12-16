@@ -21,7 +21,7 @@ namespace DotChatWF
       public string password { get; set; }
     }
 
-        public MainForm mForm;
+    public MainForm mForm;
     public RegistartionForm()
     {
       InitializeComponent();
@@ -36,8 +36,8 @@ namespace DotChatWF
     {
         string pass1 = TBPass1.Text;
         string pass2 = TBPass2.Text;
-      if (pass1 == pass2)
-      {
+        if (pass1 == pass2)
+        {
         WebRequest req = WebRequest.Create("http://localhost:5000/api/reg");
         req.Method = "POST";
         AuthData auth_data = new AuthData();

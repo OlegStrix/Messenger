@@ -37,7 +37,7 @@ namespace Server.Controllers
         public void Post([FromBody] message msg)
         {
             Program.ms.Add(msg);
-            Console.WriteLine($"{msg.username}:  {msg.text}");
+            Console.WriteLine($"{msg.username}:  {msg.text} ({Program.ms.messages.Count-1})");
 
         }
     }

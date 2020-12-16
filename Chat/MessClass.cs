@@ -49,7 +49,6 @@ namespace Server
         {
             messages.Clear();
             message ms = new message();
-            //for (int i = 0; i < 10; i++)
             messages.Add(ms);
         }
 
@@ -57,7 +56,6 @@ namespace Server
         {
             messages.Clear();
             message ms = new message();
-            //for(int i=0; i<10;i++)
             messages.Add(ms);
         }
 
