@@ -39,6 +39,7 @@
             this.updateLoop = new System.Windows.Forms.Timer(this.components);
             this.btnAuth = new System.Windows.Forms.Button();
             this.btnReg = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // listMessages
@@ -47,7 +48,7 @@
             this.listMessages.ForeColor = System.Drawing.Color.Black;
             this.listMessages.FormattingEnabled = true;
             this.listMessages.Location = new System.Drawing.Point(9, 10);
-            this.listMessages.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listMessages.Margin = new System.Windows.Forms.Padding(2);
             this.listMessages.Name = "listMessages";
             this.listMessages.Size = new System.Drawing.Size(250, 290);
             this.listMessages.TabIndex = 0;
@@ -86,7 +87,7 @@
             "You are not logged in"});
             this.fieldUsername.BackColor = System.Drawing.Color.White;
             this.fieldUsername.Location = new System.Drawing.Point(81, 304);
-            this.fieldUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fieldUsername.Margin = new System.Windows.Forms.Padding(2);
             this.fieldUsername.Name = "fieldUsername";
             this.fieldUsername.ReadOnly = true;
             this.fieldUsername.Size = new System.Drawing.Size(267, 20);
@@ -98,7 +99,7 @@
             // 
             this.fieldMessage.BackColor = System.Drawing.Color.Snow;
             this.fieldMessage.Location = new System.Drawing.Point(81, 332);
-            this.fieldMessage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fieldMessage.Margin = new System.Windows.Forms.Padding(2);
             this.fieldMessage.Multiline = true;
             this.fieldMessage.Name = "fieldMessage";
             this.fieldMessage.Size = new System.Drawing.Size(391, 34);
@@ -113,7 +114,7 @@
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSend.ForeColor = System.Drawing.Color.White;
             this.btnSend.Location = new System.Drawing.Point(498, 305);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(2);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(93, 88);
             this.btnSend.TabIndex = 5;
@@ -131,7 +132,7 @@
             // 
             this.btnAuth.BackColor = System.Drawing.Color.Transparent;
             this.btnAuth.Location = new System.Drawing.Point(9, 370);
-            this.btnAuth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAuth.Margin = new System.Windows.Forms.Padding(2);
             this.btnAuth.Name = "btnAuth";
             this.btnAuth.Size = new System.Drawing.Size(106, 23);
             this.btnAuth.TabIndex = 6;
@@ -143,13 +144,25 @@
             // 
             this.btnReg.BackColor = System.Drawing.Color.Transparent;
             this.btnReg.Location = new System.Drawing.Point(131, 370);
-            this.btnReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReg.Margin = new System.Windows.Forms.Padding(2);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(106, 23);
             this.btnReg.TabIndex = 7;
             this.btnReg.Text = "Registartion";
             this.btnReg.UseVisualStyleBackColor = false;
             this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.White;
+            this.listBox1.ForeColor = System.Drawing.Color.Black;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(347, 10);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(250, 290);
+            this.listBox1.TabIndex = 8;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -158,6 +171,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(608, 407);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnReg);
             this.Controls.Add(this.btnAuth);
             this.Controls.Add(this.btnSend);
@@ -167,7 +181,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listMessages);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -187,6 +201,7 @@
         private System.Windows.Forms.Timer updateLoop;
     private System.Windows.Forms.Button btnAuth;
     private System.Windows.Forms.Button btnReg;
-  }
+        private System.Windows.Forms.ListBox listBox1;
+    }
 }
 

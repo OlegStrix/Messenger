@@ -152,6 +152,11 @@ namespace DotChatWF
         {
 
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
     [Serializable]
     public class Message
