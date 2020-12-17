@@ -31,7 +31,6 @@ namespace Server.Controllers
             return NotFound();
         }
 
-
         // POST api/<chatController>
         [HttpPost]
         public void Post([FromBody] message msg)

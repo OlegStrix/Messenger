@@ -56,8 +56,6 @@ namespace DotChatWF
                     {
                         username = fieldUsername.Text,
                         text = fieldMessage.Text,
-
-
                     });
                 }
                 ListBox_listMessages = listMessages;
@@ -187,7 +185,7 @@ namespace DotChatWF
 
         private void MainFormClosed(object sender, FormClosedEventArgs e)
         {
-            CheckStatusOffline();
+            
         }
     }
     [Serializable]

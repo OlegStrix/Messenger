@@ -139,7 +139,7 @@
             this.btnAuth.Location = new System.Drawing.Point(9, 370);
             this.btnAuth.Margin = new System.Windows.Forms.Padding(2);
             this.btnAuth.Name = "btnAuth";
-            this.btnAuth.Size = new System.Drawing.Size(106, 23);
+            this.btnAuth.Size = new System.Drawing.Size(121, 23);
             this.btnAuth.TabIndex = 6;
             this.btnAuth.Text = "Authentification";
             this.btnAuth.UseVisualStyleBackColor = false;
@@ -149,7 +149,7 @@
             // 
             this.btnReg.BackColor = System.Drawing.Color.Transparent;
             this.btnReg.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
-            this.btnReg.Location = new System.Drawing.Point(131, 370);
+            this.btnReg.Location = new System.Drawing.Point(153, 370);
             this.btnReg.Margin = new System.Windows.Forms.Padding(2);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(106, 23);
@@ -165,10 +165,10 @@
             this.listBox1.ForeColor = System.Drawing.Color.Black;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(311, 10);
+            this.listBox1.Location = new System.Drawing.Point(319, 10);
             this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(286, 276);
+            this.listBox1.Size = new System.Drawing.Size(278, 276);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -191,7 +191,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "NewYear";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);

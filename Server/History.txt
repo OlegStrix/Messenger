@@ -12,3 +12,19 @@ kuku: hello
 k: hello
 k: hi
 k: hello
+Server: testik12 is ONLINE
+testik12: Hello
+Server: testik12 is OFFLINE
+Server: testik12 is OFFLINE
+Server: k is ONLINE
+k: ssd
+Server: bgbgbgb is ONLINE
+bgbgbgb: Hi
+bgbgbgb: gg
+bgbgbgb: zxc
+Server: bgbgbgb is OFFLINE
+Server: k is ONLINE
+k: zxc
+k: xc
+k: 67867
+Server: k is OFFLINE
