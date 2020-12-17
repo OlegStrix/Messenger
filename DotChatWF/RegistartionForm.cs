@@ -59,6 +59,7 @@ namespace DotChatWF
           mForm.TextBox_username.Text = auth_data.login;
           mForm.Show();
           this.Visible = false;
+          mForm.CheckStatusOnline();
         }
         else
         {

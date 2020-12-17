@@ -75,6 +75,7 @@ namespace DotChatWF
                             MForm.Show();
                             this.Visible = false;
                             MForm.int_token = -1;
+                            MForm.CheckStatusOnline();
                         }
                         else 
                         {

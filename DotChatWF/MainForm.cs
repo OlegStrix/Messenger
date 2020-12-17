@@ -33,8 +33,7 @@ namespace DotChatWF
         }
         
         private void updateLoop_Tick(object sender, EventArgs e)
-        {
-            
+        {   
             Message msg = GetMessage(lastMsgID);
             if (msg != null) {
                 listMessages.Items.Add($"[{DateTime.Now.ToShortTimeString()}] [{msg.username}]: {msg.text}");
@@ -103,10 +102,11 @@ namespace DotChatWF
         }
 
     private void btnAuth_Click(object sender, EventArgs e)
-    {    
+    {      
         AuthForm.MForm = this;
         AuthForm.Show();
         this.Visible = false;
+        CheckStatusOffline();
     }
 
     private void MainForm_Load(object sender, EventArgs e)
@@ -122,8 +122,33 @@ namespace DotChatWF
         RegForm = new RegistartionForm();
         TextBox_username = fieldUsername;
         
+    }
+        public void CheckStatusOffline()
+        {
+            if (int_token != 0)
+            {
+                Message Here = new Message();                 
+                Here.username = "Server";
+                Here.text = fieldUsername.Text + " is OFFLINE";
+                Here.list = "";                             
+                SendMessage(Here);
+            }
         }
-
+        public void CheckStatusOnline()
+        {
+            Message authok = new Message();
+            authok.username = "Server";
+            authok.text = fieldUsername.Text + " is ONLINE";
+            WebRequest reqt = WebRequest.Create("http://localhost:5000/api/chat");
+            reqt.Method = "POST";                                                       
+            string postdata = JsonConvert.SerializeObject(authok);                                 
+            reqt.ContentType = "application/json";                                      
+                                                                                                                            
+            StreamWriter reqtStream = new StreamWriter(reqt.GetRequestStream());        
+            reqtStream.Write(postdata);                                                 
+            reqtStream.Close();                                                        
+            reqt.GetResponse();
+        }
 
 
         private void btnReg_Click(object sender, EventArgs e)
@@ -131,6 +156,7 @@ namespace DotChatWF
             RegForm.mForm = this;
             RegForm.Show();
             this.Visible = false;
+            CheckStatusOffline();
         }
 
         private void fieldUsername_TextChanged(object sender, EventArgs e)
@@ -157,6 +183,11 @@ namespace DotChatWF
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void MainFormClosed(object sender, FormClosedEventArgs e)
+        {
+            CheckStatusOffline();
         }
     }
     [Serializable]
