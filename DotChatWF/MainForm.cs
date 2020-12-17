@@ -6,11 +6,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace DotChatWF
 {
@@ -25,8 +27,8 @@ namespace DotChatWF
         public TextBox TextBox_username;
         public ListBox ListBox_listMessages;
         public int int_token;
+        private object axWindowsMediaPlayer1;
 
-        
         public MainForm()
         {
             InitializeComponent();

@@ -133,6 +133,7 @@
             this.Controls.Add(this.TBPass1);
             this.Controls.Add(this.fieldUserName);
             this.Controls.Add(this.btnReg2serv);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RegistartionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -46,13 +46,13 @@
             // 
             this.listMessages.BackColor = System.Drawing.Color.White;
             this.listMessages.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
-            this.listMessages.ForeColor = System.Drawing.Color.Black;
+            this.listMessages.ForeColor = System.Drawing.Color.DimGray;
             this.listMessages.FormattingEnabled = true;
             this.listMessages.ItemHeight = 17;
             this.listMessages.Location = new System.Drawing.Point(9, 10);
             this.listMessages.Margin = new System.Windows.Forms.Padding(2);
             this.listMessages.Name = "listMessages";
-            this.listMessages.Size = new System.Drawing.Size(250, 276);
+            this.listMessages.Size = new System.Drawing.Size(230, 276);
             this.listMessages.TabIndex = 0;
             this.listMessages.SelectedIndexChanged += new System.EventHandler(this.listMessages_SelectedIndexChanged);
             // 
@@ -89,24 +89,26 @@
             "You are not logged in"});
             this.fieldUsername.BackColor = System.Drawing.Color.White;
             this.fieldUsername.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
+            this.fieldUsername.ForeColor = System.Drawing.Color.DimGray;
             this.fieldUsername.Location = new System.Drawing.Point(81, 304);
             this.fieldUsername.Margin = new System.Windows.Forms.Padding(2);
             this.fieldUsername.Name = "fieldUsername";
             this.fieldUsername.ReadOnly = true;
             this.fieldUsername.Size = new System.Drawing.Size(267, 23);
             this.fieldUsername.TabIndex = 3;
-            this.fieldUsername.Text = "Not authenticated";
+            this.fieldUsername.Text = "You are not loggined in";
             this.fieldUsername.TextChanged += new System.EventHandler(this.fieldUsername_TextChanged);
             // 
             // fieldMessage
             // 
             this.fieldMessage.BackColor = System.Drawing.Color.Snow;
             this.fieldMessage.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
+            this.fieldMessage.ForeColor = System.Drawing.Color.DimGray;
             this.fieldMessage.Location = new System.Drawing.Point(81, 332);
             this.fieldMessage.Margin = new System.Windows.Forms.Padding(2);
             this.fieldMessage.Multiline = true;
             this.fieldMessage.Name = "fieldMessage";
-            this.fieldMessage.Size = new System.Drawing.Size(391, 34);
+            this.fieldMessage.Size = new System.Drawing.Size(267, 25);
             this.fieldMessage.TabIndex = 4;
             this.fieldMessage.TextChanged += new System.EventHandler(this.fieldMessage_TextChanged);
             // 
@@ -116,7 +118,7 @@
             this.btnSend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSend.BackgroundImage")));
             this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSend.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
-            this.btnSend.ForeColor = System.Drawing.Color.White;
+            this.btnSend.ForeColor = System.Drawing.Color.Black;
             this.btnSend.Location = new System.Drawing.Point(498, 305);
             this.btnSend.Margin = new System.Windows.Forms.Padding(2);
             this.btnSend.Name = "btnSend";
@@ -139,7 +141,7 @@
             this.btnAuth.Location = new System.Drawing.Point(9, 370);
             this.btnAuth.Margin = new System.Windows.Forms.Padding(2);
             this.btnAuth.Name = "btnAuth";
-            this.btnAuth.Size = new System.Drawing.Size(121, 23);
+            this.btnAuth.Size = new System.Drawing.Size(121, 26);
             this.btnAuth.TabIndex = 6;
             this.btnAuth.Text = "Authentification";
             this.btnAuth.UseVisualStyleBackColor = false;
@@ -152,7 +154,7 @@
             this.btnReg.Location = new System.Drawing.Point(153, 370);
             this.btnReg.Margin = new System.Windows.Forms.Padding(2);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(106, 23);
+            this.btnReg.Size = new System.Drawing.Size(106, 26);
             this.btnReg.TabIndex = 7;
             this.btnReg.Text = "Registartion";
             this.btnReg.UseVisualStyleBackColor = false;
@@ -162,13 +164,13 @@
             // 
             this.listBox1.BackColor = System.Drawing.Color.White;
             this.listBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
-            this.listBox1.ForeColor = System.Drawing.Color.Black;
+            this.listBox1.ForeColor = System.Drawing.Color.DimGray;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(319, 10);
+            this.listBox1.Location = new System.Drawing.Point(335, 10);
             this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(278, 276);
+            this.listBox1.Size = new System.Drawing.Size(262, 276);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -189,6 +191,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listMessages);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
