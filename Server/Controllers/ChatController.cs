@@ -35,8 +35,25 @@ namespace Server.Controllers
         [HttpPost]
         public void Post([FromBody] message msg)
         {
+            var s = msg.text;
+            string clear_text = Convert.ToString(s);
             Program.ms.Add(msg);
-            Console.WriteLine($"{msg.username}:  {msg.text} ({Program.ms.messages.Count-1})");
+            if(msg.username == "Clear")
+            {
+                if(clear_text == "/Clear")
+                {
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.WriteLine($"{msg.username}:  {msg.text} ({Program.ms.messages.Count - 1})");
+                }
+                         
+            }
+            else
+            {
+                Console.WriteLine($"{msg.username}:  {msg.text} ({Program.ms.messages.Count - 1})");
+            }
 
         }
     }

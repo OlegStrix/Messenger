@@ -12,7 +12,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media;
 
 namespace DotChatWF
 {
@@ -27,7 +26,6 @@ namespace DotChatWF
         public TextBox TextBox_username;
         public ListBox ListBox_listMessages;
         public int int_token;
-        private object axWindowsMediaPlayer1;
 
         public MainForm()
         {
@@ -61,12 +59,12 @@ namespace DotChatWF
                     });
                 }
                 ListBox_listMessages = listMessages;
-
+                
                 updateLoop_Tick(sender, e);
             }
         }
         
-        // Отправляет сообщение на сервер
+
         void SendMessage(Message msg)
         {
             DateTime dt1 = DateTime.Now;
@@ -99,8 +97,7 @@ namespace DotChatWF
                 return JsonConvert.DeserializeObject<Message>(smsg);
             }
             catch { return null; }
-        }
-
+        } 
     private void btnAuth_Click(object sender, EventArgs e)
     {      
         AuthForm.MForm = this;
@@ -188,6 +185,26 @@ namespace DotChatWF
         private void MainFormClosed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (fieldMessage.Text.Length != 0)
+            {
+                if (TextBox_username.Text == "/Clear")
+                {
+                    listMessages.Items.Clear();
+                }
+            }
+
+            updateLoop_Tick(sender, e);
+            //if (listMessages.Items.Count != 0)
+            //{
+            //    if (TextBox_username.Text == "Clear")
+            //    {
+            //        listMessages.Items.Clear();
+            //    }
+            //}   
         }
     }
     [Serializable]

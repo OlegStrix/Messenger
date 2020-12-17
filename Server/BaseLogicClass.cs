@@ -97,7 +97,6 @@ namespace Server
       Random rand = new Random();
       return rand.Next(10 * 1000 , 100 * 1000 );
     }
-
     public int login(AuthData auth_data)
     {
       string login = auth_data.login;
@@ -172,7 +171,7 @@ namespace Server
       }
 
     }
-    
+
     public void LoadFromFile(string filename = "data_sessions.json")
     {
       long size = 0;
@@ -212,6 +211,4 @@ namespace Server
     public string login { get; set; }
     public string password { get; set; }
   }
-
-
 }

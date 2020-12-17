@@ -39,7 +39,7 @@ namespace DotChatWF
                 string name = textBox1.Text;
                 string password = textBox2.Text;
                 string text;
-                string file = @"C:\Users\olego\source\repos\OlegStrix\Messenger\DotChatWF\data_sessions.json"; 
+                string file = @"C:\Users\olego\source\repos\OlegStrix\Messenger\Server\data_sessions.json"; 
                 int k = 0;
                 using(StreamReader sr = new StreamReader(file))
                 {
@@ -77,6 +77,7 @@ namespace DotChatWF
                             MForm.int_token = -1;
                             MForm.CheckStatusOnline();
                         }
+                        
                         else 
                         {
                             k = 1;
@@ -88,6 +89,7 @@ namespace DotChatWF
                 {
                     MessageBox.Show("User not found");
                 }
+
         }
 
 

@@ -1,15 +1,28 @@
-
+Server: fgcvb is ONLINE
+fgcvb: dsadsadsa
+fgcvb: 23
+Server: fgcvb is OFFLINE
 Server: k is ONLINE
-k: sdfsdfsf
+k: fdgert
+Server: k is OFFLINE
+Server: Clear is ONLINE
+Clear: sfgdf
+Clear: Clear
+Server: retrty is ONLINE
+retrty: Hello
+retrty: xcxvc
+Server: retrty is OFFLINE
 Server: k is ONLINE
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
-k: sdfdfsdfsfd
+k: sdfsdf
+Server: k is OFFLINE
+Server: Clear is ONLINE
+Clear: sfgdg
+Clear: 123
+Clear: Clear
+Server: k is ONLINE
+k: sadasd
+k: ffgsdfsd
+Server: k is OFFLINE
+Server: Clear is ONLINE
+Clear: Clear
+Clear: /Clear
