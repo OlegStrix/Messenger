@@ -10,3 +10,7 @@ Clear: /Clear
 Server: Clear is OFFLINE
 Server: sdf is ONLINE
 Server: sdf is OFFLINE
+Server: k is ONLINE
+k: hello
+Server: k is ONLINE
+k: dsd

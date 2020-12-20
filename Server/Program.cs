@@ -12,13 +12,13 @@ namespace Server
 {
     public class Program
     {
-    public static MessagesClass ms;
-    public static SessionsClass Sessions;
+        public static MessagesClass ms;
+        public static SessionsClass Sessions;
 
-    public static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            ms = new MessagesClass();  //обработка сообщений
-            Sessions = new SessionsClass(); // хранение токенов логинов и паролей
+            ms = new MessagesClass();  
+            Sessions = new SessionsClass(); 
             Sessions.LoadFromFile();
             CreateHostBuilder(args).Build().Run();
         }
@@ -29,7 +29,5 @@ namespace Server
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-
-
     }
 }
