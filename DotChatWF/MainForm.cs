@@ -191,20 +191,14 @@ namespace DotChatWF
         {
             if (fieldMessage.Text.Length != 0)
             {
-                if (TextBox_username.Text == "/Clear")
+                if (TextBox_username.Text == "Clear")
                 {
                     listMessages.Items.Clear();
                 }
             }
 
             updateLoop_Tick(sender, e);
-            //if (listMessages.Items.Count != 0)
-            //{
-            //    if (TextBox_username.Text == "Clear")
-            //    {
-            //        listMessages.Items.Clear();
-            //    }
-            //}   
+  
         }
     }
     [Serializable]

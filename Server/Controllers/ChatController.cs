@@ -47,14 +47,12 @@ namespace Server.Controllers
                 else
                 {
                     Console.WriteLine($"{msg.username}:  {msg.text} ({Program.ms.messages.Count - 1})");
-                }
-                         
+                }               
             }
             else
             {
                 Console.WriteLine($"{msg.username}:  {msg.text} ({Program.ms.messages.Count - 1})");
             }
-
         }
     }
 }

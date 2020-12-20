@@ -1,28 +1,12 @@
-Server: fgcvb is ONLINE
-fgcvb: dsadsadsa
-fgcvb: 23
-Server: fgcvb is OFFLINE
-Server: k is ONLINE
-k: fdgert
-Server: k is OFFLINE
-Server: Clear is ONLINE
-Clear: sfgdf
-Clear: Clear
-Server: retrty is ONLINE
-retrty: Hello
-retrty: xcxvc
-Server: retrty is OFFLINE
-Server: k is ONLINE
-k: sdfsdf
-Server: k is OFFLINE
-Server: Clear is ONLINE
-Clear: sfgdg
-Clear: 123
-Clear: Clear
+Server: sdfsdfsdfsdfwqer is ONLINE
+sdfsdfsdfsdfwqer: asdasd
+Server: sdfsdfsdfsdfwqer is OFFLINE
 Server: k is ONLINE
 k: sadasd
-k: ffgsdfsd
 Server: k is OFFLINE
 Server: Clear is ONLINE
-Clear: Clear
+Clear: sadasd
 Clear: /Clear
+Server: Clear is OFFLINE
+Server: sdf is ONLINE
+Server: sdf is OFFLINE
