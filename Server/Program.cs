@@ -21,26 +21,7 @@ namespace Server
             ms = new MessagesClass();  
             Sessions = new SessionsClass(); 
             Sessions.LoadFromFile();
-            string IP;
-            string port;
 
-
-            if (args.Length > 0)
-            {
-                IP = args[0];
-                port = args[1];
-            }
-            else
-            {
-                Console.Write("Enter IP(or press enter or default):");
-                IP = Console.ReadLine();
-                if (!string.IsNullOrEmpty(IP))
-                {
-                    Console.Write("Enter port:");
-                    port = Console.ReadLine();
-                    Url = $"http://{IP}:{port}";
-                }
-            }
 
             CreateHostBuilder(args).Build().Run();
         
@@ -52,7 +33,6 @@ namespace Server
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();       
-                    webBuilder.UseUrls(Url);
                 });
         }
     }
