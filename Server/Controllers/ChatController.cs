@@ -38,7 +38,7 @@ namespace Server.Controllers
             var s = msg.text;
             string clear_text = Convert.ToString(s);
             Program.ms.Add(msg);
-            if(msg.username == "Clear")
+            if(msg.username == "Admin")
             {
                 if(clear_text == "/Clear")
                 {

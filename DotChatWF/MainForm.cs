@@ -191,7 +191,7 @@ namespace DotChatWF
         {
             if (fieldMessage.Text.Length != 0)
             {
-                if (TextBox_username.Text == "Clear")
+                if (TextBox_username.Text == "Admin")
                 {
                     listMessages.Items.Clear();
                 }
