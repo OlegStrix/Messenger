@@ -15,19 +15,45 @@ namespace Server
         public static MessagesClass ms;
         public static SessionsClass Sessions;
 
+        private static string Url = "http://localhost:5000";
         public static void Main(string[] args)
         {
             ms = new MessagesClass();  
             Sessions = new SessionsClass(); 
             Sessions.LoadFromFile();
-            CreateHostBuilder(args).Build().Run();
-        }
+            string IP;
+            string port;
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+
+            if (args.Length > 0)
+            {
+                IP = args[0];
+                port = args[1];
+            }
+            else
+            {
+                Console.Write("Enter IP(or press enter or default):");
+                IP = Console.ReadLine();
+                if (!string.IsNullOrEmpty(IP))
+                {
+                    Console.Write("Enter port:");
+                    port = Console.ReadLine();
+                    Url = $"http://{IP}:{port}";
+                }
+            }
+
+            CreateHostBuilder(args).Build().Run();
+        
+    }
+
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>();       
+                    webBuilder.UseUrls(Url);
                 });
+        }
     }
 }

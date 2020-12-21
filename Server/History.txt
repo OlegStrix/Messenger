@@ -14,3 +14,10 @@ Server: k is ONLINE
 k: hello
 Server: k is ONLINE
 k: dsd
+Server: Clear is ONLINE
+Clear: dfsdf
+Clear: Clear
+Clear: Clear
+Clear: Clear
+Clear: Clear
+Clear: Clear

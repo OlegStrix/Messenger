@@ -21,7 +21,7 @@ namespace Server.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<string> Get(int id)
         {
-
+            
             string json = "Not found";
             if ((id < Program.ms.GetCountMessages()) && (id >= 0))
             {
