@@ -13,38 +13,46 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace DotChatWF
 {
-
     public partial class MainForm : Form
-    {
-        
+    {  
         // Глобальные переменные
         int lastMsgID = 1;
         AuthentificationForm AuthForm;
         RegistartionForm RegForm;
         public TextBox TextBox_username;
+        public TextBox TextBox_port;
         public ListBox ListBox_listMessages;
         public int int_token;
+
+        public string IP { get; set; } = "Press";
+        public string Port { get; set; } = "Press";
+
 
         public MainForm()
         {
             InitializeComponent();
         }
-        
+
         private void updateLoop_Tick(object sender, EventArgs e)
-        {   
-            Message msg = GetMessage(lastMsgID);
-            if (msg != null) {
-                listMessages.Items.Add($"[{DateTime.Now.ToShortTimeString()}] [{msg.username}]: {msg.text}");
-                lastMsgID++;
-            }
+        {
+
+                Message msg = GetMessage(lastMsgID);
+                if (msg != null)
+                {
+                    listMessages.Items.Add($"[{DateTime.Now.ToShortTimeString()}] [{msg.username}]: {msg.text}");
+                    lastMsgID++;
+                }
+            
+            
+            
         }
         
         //Отправка сообщения кликом на кнопку Send
         private void btnSend_Click(object sender, EventArgs e) {
-
-                if (int_token == 0)
+            if (int_token == 0)
                 {
                 MessageBox.Show("Please log in or register");
                 }
@@ -59,24 +67,19 @@ namespace DotChatWF
                     });
                 }
                 ListBox_listMessages = listMessages;
-                
-                updateLoop_Tick(sender, e);
             }
         }
         
-
         void SendMessage(Message msg)
         {
             DateTime dt1 = DateTime.Now;
             DateTime dt2 = new DateTime(DateTime.Now.Year + 1, 1, 1, 0, 0, 0, 1);
             TimeSpan ts = dt2 - dt1;
             listBox1.Items.Add($"Осталось {ts.Days} д, {ts.Hours} ч, {ts.Minutes} м, {ts.Seconds} с до НГ");
-            WebRequest req = WebRequest.Create("http://localhost:5000/api/chat");
+            WebRequest req = WebRequest.Create($"http://{IP}:{Port}/api/chat");
             req.Method = "POST";
             string postData = JsonConvert.SerializeObject(msg);
-            //byte[] bytes = Encoding.UTF8.GetBytes(postData);
             req.ContentType = "application/json";
-            //req.ContentLength = bytes.Length;
             StreamWriter reqStream = new StreamWriter(req.GetRequestStream());
             reqStream.Write(postData);
             reqStream.Close();
@@ -88,7 +91,7 @@ namespace DotChatWF
         {
             try
             {
-                WebRequest req = WebRequest.Create($"http://localhost:5000/api/chat/{id}");
+                WebRequest req = WebRequest.Create($"http://{IP}:{Port}/api/chat/{id}");
                 req.Method = "GET";
                 WebResponse resp = req.GetResponse();
                 string smsg = new StreamReader(resp.GetResponseStream()).ReadToEnd();
@@ -97,9 +100,13 @@ namespace DotChatWF
                 return JsonConvert.DeserializeObject<Message>(smsg);
             }
             catch { return null; }
+
+
         } 
     private void btnAuth_Click(object sender, EventArgs e)
-    {      
+    {
+        Port = TextPort.Text;
+        IP = textIp.Text;
         AuthForm.MForm = this;
         AuthForm.Show();
         this.Visible = false;
@@ -108,6 +115,8 @@ namespace DotChatWF
 
     private void MainForm_Load(object sender, EventArgs e)
     {
+        
+        
         string Height1 = File.ReadLines("Config.Json").Skip(4).First();
         string Width1 = File.ReadLines("Config.Json").Skip(7).First();
         int W = Convert.ToInt32(Width1);
@@ -119,6 +128,8 @@ namespace DotChatWF
         RegForm = new RegistartionForm();
         TextBox_username = fieldUsername;
         
+
+
     }
         public void CheckStatusOffline()
         {
@@ -130,13 +141,14 @@ namespace DotChatWF
                 Here.list = "";                             
                 SendMessage(Here);
             }
+            
         }
         public void CheckStatusOnline()
         {
             Message authok = new Message();
             authok.username = "Server";
             authok.text = fieldUsername.Text + " is ONLINE";
-            WebRequest reqt = WebRequest.Create("http://localhost:5000/api/chat");
+            WebRequest reqt = WebRequest.Create($"http://{IP}:{Port}/api/chat");
             reqt.Method = "POST";                                                       
             string postdata = JsonConvert.SerializeObject(authok);                                 
             reqt.ContentType = "application/json";                                      
@@ -150,6 +162,8 @@ namespace DotChatWF
 
         private void btnReg_Click(object sender, EventArgs e)
         {
+            Port = TextPort.Text;
+            IP = textIp.Text;
             RegForm.mForm = this;
             RegForm.Show();
             this.Visible = false;
@@ -199,6 +213,16 @@ namespace DotChatWF
 
             updateLoop_Tick(sender, e);
   
+        }
+
+        private void TextPort_TextChanged(object sender, EventArgs e)
+        {
+            Port = TextPort.Text;
+        }
+
+        private void textIp_TextChanged(object sender, EventArgs e)
+        {
+            IP = textIp.Text;
         }
     }
     [Serializable]

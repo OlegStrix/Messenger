@@ -200,9 +200,7 @@ namespace Server
         {
           Console.WriteLine(e.Message);
         }
-        // Console.WriteLine($"Загружено записей: {this.list_tokens.Count}");
       }
-
     }
   }
 

@@ -64,6 +64,4 @@ namespace Server
             return messages.ToString();
         }
     }
-
-
 }

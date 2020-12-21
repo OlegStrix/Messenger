@@ -21,3 +21,65 @@ Clear: Clear
 Clear: Clear
 Clear: Clear
 Clear: Clear
+Server: k is ONLINE
+k: hello bro
+Server: k is ONLINE
+k: Hello
+k: Hello
+Server: k is ONLINE
+k: dsfs
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+k: hello
+Server: k is ONLINE
+Server: k is OFFLINE
+Server: k is ONLINE
+Server: k is ONLINE
+k: hello
+Server: k is ONLINE
+k: gello
+
+k: gello
+adsdasd
+k: gello
+xzzx
+k: gello
+dada
+Server: k is ONLINE
+k: Hello
+k: Fsds
+k: xcvxc
+Server: k is ONLINE
+k: sdfs
+k: Hi
+Server: k is ONLINE
+k: Hello
+k: sadad
+Server: k is OFFLINE
+Server: Clear is ONLINE
+Clear: sadad
+ddfs: weqwe
+Server: k is ONLINE
+k: asddsd
+ddfs: sadsd
+k: dfsdfs
+Server: k is ONLINE
+k: sfsd
+Server: k is ONLINE
+k: fe
+k: sdf
+Server: k is ONLINE
+k: wqeqweqweqweqwe
+k: sfsdsf

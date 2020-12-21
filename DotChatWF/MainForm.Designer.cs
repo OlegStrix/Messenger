@@ -41,6 +41,8 @@
             this.btnReg = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.TextPort = new System.Windows.Forms.TextBox();
+            this.textIp = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listMessages
@@ -132,7 +134,7 @@
             // updateLoop
             // 
             this.updateLoop.Enabled = true;
-            this.updateLoop.Interval = 1000;
+            this.updateLoop.Interval = 600;
             this.updateLoop.Tick += new System.EventHandler(this.updateLoop_Tick);
             // 
             // btnAuth
@@ -179,7 +181,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(373, 305);
+            this.button1.Location = new System.Drawing.Point(358, 367);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 26);
@@ -188,6 +190,32 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // TextPort
+            // 
+            this.TextPort.BackColor = System.Drawing.Color.Snow;
+            this.TextPort.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
+            this.TextPort.ForeColor = System.Drawing.Color.DimGray;
+            this.TextPort.Location = new System.Drawing.Point(358, 332);
+            this.TextPort.Margin = new System.Windows.Forms.Padding(2);
+            this.TextPort.Multiline = true;
+            this.TextPort.Name = "TextPort";
+            this.TextPort.Size = new System.Drawing.Size(121, 25);
+            this.TextPort.TabIndex = 10;
+            this.TextPort.TextChanged += new System.EventHandler(this.TextPort_TextChanged);
+            // 
+            // textIp
+            // 
+            this.textIp.BackColor = System.Drawing.Color.Snow;
+            this.textIp.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
+            this.textIp.ForeColor = System.Drawing.Color.DimGray;
+            this.textIp.Location = new System.Drawing.Point(358, 302);
+            this.textIp.Margin = new System.Windows.Forms.Padding(2);
+            this.textIp.Multiline = true;
+            this.textIp.Name = "textIp";
+            this.textIp.Size = new System.Drawing.Size(121, 25);
+            this.textIp.TabIndex = 11;
+            this.textIp.TextChanged += new System.EventHandler(this.textIp_TextChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +223,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(608, 407);
+            this.Controls.Add(this.textIp);
+            this.Controls.Add(this.TextPort);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnReg);
@@ -231,6 +261,8 @@
     private System.Windows.Forms.Button btnReg;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox TextPort;
+        private System.Windows.Forms.TextBox textIp;
     }
 }
 
