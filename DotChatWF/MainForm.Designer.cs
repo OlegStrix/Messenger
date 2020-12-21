@@ -201,19 +201,20 @@
             this.TextPort.Name = "TextPort";
             this.TextPort.Size = new System.Drawing.Size(121, 25);
             this.TextPort.TabIndex = 10;
+            this.TextPort.Text = "Paste Port";
             this.TextPort.TextChanged += new System.EventHandler(this.TextPort_TextChanged);
             // 
             // textIp
             // 
-            this.textIp.BackColor = System.Drawing.Color.Snow;
+            this.textIp.BackColor = System.Drawing.Color.White;
             this.textIp.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.textIp.ForeColor = System.Drawing.Color.DimGray;
             this.textIp.Location = new System.Drawing.Point(358, 302);
             this.textIp.Margin = new System.Windows.Forms.Padding(2);
-            this.textIp.Multiline = true;
             this.textIp.Name = "textIp";
-            this.textIp.Size = new System.Drawing.Size(121, 25);
+            this.textIp.Size = new System.Drawing.Size(121, 23);
             this.textIp.TabIndex = 11;
+            this.textIp.Text = "Paste IP\r\n";
             this.textIp.TextChanged += new System.EventHandler(this.textIp_TextChanged);
             // 
             // MainForm
