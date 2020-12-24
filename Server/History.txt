@@ -1,85 +1,41 @@
-Server: sdfsdfsdfsdfwqer is ONLINE
-sdfsdfsdfsdfwqer: asdasd
-Server: sdfsdfsdfsdfwqer is OFFLINE
-Server: k is ONLINE
-k: sadasd
-Server: k is OFFLINE
-Server: Clear is ONLINE
-Clear: sadasd
-Clear: /Clear
-Server: Clear is OFFLINE
-Server: sdf is ONLINE
-Server: sdf is OFFLINE
-Server: k is ONLINE
-k: hello
-Server: k is ONLINE
-k: dsd
-Server: Clear is ONLINE
-Clear: dfsdf
-Clear: Clear
-Clear: Clear
-Clear: Clear
-Clear: Clear
-Clear: Clear
-Server: k is ONLINE
-k: hello bro
-Server: k is ONLINE
-k: Hello
-k: Hello
-Server: k is ONLINE
-k: dsfs
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-k: hello
-Server: k is ONLINE
-Server: k is OFFLINE
-Server: k is ONLINE
-Server: k is ONLINE
-k: hello
-Server: k is ONLINE
-k: gello
 
-k: gello
-adsdasd
-k: gello
-xzzx
-k: gello
-dada
 Server: k is ONLINE
-k: Hello
-k: Fsds
-k: xcvxc
+k: Привет мужики
+k: Салам Алейкум
+Champion: Hello
+Anatolich: Privet drug
+hello: zxc
 Server: k is ONLINE
-k: sdfs
-k: Hi
+k: dada
+Server: sdf is ONLINE
+Server: sdf is ONLINE
+Server: frefedsad is ONLINE
+Server: Krippa is ONLINE
 Server: k is ONLINE
-k: Hello
-k: sadad
+Server: zxczxc is ONLINE
+zxczxc: Hi
+Server: k is ONLINE
+Server: zxczxczxc is ONLINE
 Server: k is OFFLINE
-Server: Clear is ONLINE
-Clear: sadad
-ddfs: weqwe
+Server: Krippa is ONLINE
+Server: Krippa is OFFLINE
 Server: k is ONLINE
-k: asddsd
-ddfs: sadsd
-k: dfsdfs
 Server: k is ONLINE
-k: sfsd
+k: Hello
+k: dada
+Server: k is OFFLINE
+Server: Admin is ONLINE
+Admin: Hello
+
+Admin: Hello
+I am Admin
+Server: kuku is ONLINE
+kuku: Hi
+Server: kuku is OFFLINE
+Server: Admin is ONLINE
+Admin: Hello
+Admin: I am Admin
+Admin: /Clear
+Server: Admin is OFFLINE
 Server: k is ONLINE
-k: fe
-k: sdf
-Server: k is ONLINE
-k: wqeqweqweqweqwe
-k: sfsdsf
+k: Hello bratan

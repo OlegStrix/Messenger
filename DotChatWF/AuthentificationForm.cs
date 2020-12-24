@@ -52,14 +52,11 @@ namespace DotChatWF
                     {
                         if(password == m.ListTokens[i].Password)
                         {
-                        var token = m.ListTokens[i].Token;
                         WebRequest req = WebRequest.Create($"http://{MForm.IP}:{MForm.Port}/api/auth");
                         req.Method = "POST";
                         AuthData auth_data = new AuthData();
                         auth_data.login = name;
                         auth_data.password = password;
-                        int token1 = Convert.ToInt32(token);
-                        auth_data.token = token1;
                         string postData = JsonConvert.SerializeObject(auth_data);
                         req.ContentType = "application/json";
                         StreamWriter reqStream = new StreamWriter(req.GetRequestStream());

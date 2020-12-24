@@ -51,6 +51,7 @@ namespace DotChat
             Application.Top.Add(menu);
 
             // Создание главного окна
+            
             winMain = new Window()
             {
                 X = 0,
@@ -59,10 +60,10 @@ namespace DotChat
                 Height = Dim.Fill(),
                 Title = "DotChat",
             };
-            //winMain.ColorScheme = colorDark;
             Application.Top.Add(winMain);
 
             // Создание окна с сообщениями
+
             winMessages = new Window()
             {
                 X = 0,
@@ -73,6 +74,7 @@ namespace DotChat
             winMain.Add(winMessages);
 
             // Создание надписи с username
+
             labelUsername = new Label()
             {
                 X = 0,
@@ -85,6 +87,7 @@ namespace DotChat
             winMain.Add(labelUsername);
 
             // Создание надписи с message
+
             labelMessage = new Label()
             {
                 X = 0,
@@ -97,6 +100,7 @@ namespace DotChat
             winMain.Add(labelMessage);
 
             // Создание поля ввода username
+
             fieldUsername = new TextField()
             {
                 X = 15,
@@ -107,6 +111,7 @@ namespace DotChat
             winMain.Add(fieldUsername);
 
             // Создание поля ввода message
+
             fieldMessage = new TextField()
             {
                 X = 15,
@@ -117,6 +122,7 @@ namespace DotChat
             winMain.Add(fieldMessage);
 
             // Создание кнопки отправки
+
             btnSend = new Button()
             {
                 X = Pos.Right(winMain) - 15,
@@ -128,7 +134,7 @@ namespace DotChat
             btnSend.Clicked += OnBtnSendClick;
             winMain.Add(btnSend);
 
-            // Создание цикла получения сообщений
+            
             int lastMsgID = 1;
             string Timing = File.ReadLines("UpdateLoop.Json").Skip(4).First();
             Timer updateLoop = new Timer();
@@ -148,7 +154,7 @@ namespace DotChat
             Application.Run();
         }
 
-        // Реакция на клик кнопки
+        
         static void OnBtnSendClick()
         {
             if (fieldUsername.Text.Length != 0 && fieldMessage.Text.Length != 0)
@@ -165,6 +171,7 @@ namespace DotChat
         }
 
         // Синхронизирует список сообщений с представлением
+
         static void MessagesUpdate()
         {
             winMessages.RemoveAll();
@@ -185,7 +192,7 @@ namespace DotChat
             Application.Refresh();
         }
 
-        // Отправляет сообщение на сервер
+        
         static void SendMessage(Message msg)
         {
             WebRequest req = WebRequest.Create("http://localhost:5000/api/chat");
@@ -201,7 +208,7 @@ namespace DotChat
             req.GetResponse();
         }
         
-        // Получает сообщение с сервера
+        
         static Message GetMessage(int id)
         {        
             WebRequest req = WebRequest.Create($"http://localhost:5000/api/chat/{id}");

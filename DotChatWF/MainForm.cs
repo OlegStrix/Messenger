@@ -21,7 +21,7 @@ namespace DotChatWF
         // Глобальные переменные
         int lastMsgID = 1;
         AuthentificationForm AuthForm;
-        RegistartionForm RegForm;
+        RegistrartionForm RegForm;
         public TextBox TextBox_username;
         public TextBox TextBox_port;
         public ListBox ListBox_listMessages;
@@ -36,19 +36,7 @@ namespace DotChatWF
             InitializeComponent();
         }
 
-        private void updateLoop_Tick(object sender, EventArgs e)
-        {
 
-                Message msg = GetMessage(lastMsgID);
-                if (msg != null)
-                {
-                    listMessages.Items.Add($"[{DateTime.Now.ToShortTimeString()}] [{msg.username}]: {msg.text}");
-                    lastMsgID++;
-                }
-            
-            
-            
-        }
         
         //Отправка сообщения кликом на кнопку Send
         private void btnSend_Click(object sender, EventArgs e) {
@@ -66,7 +54,6 @@ namespace DotChatWF
                         text = fieldMessage.Text,
                     });
                 }
-                ListBox_listMessages = listMessages;
             }
         }
         
@@ -86,7 +73,7 @@ namespace DotChatWF
             req.GetResponse();
         }
 
-        // Получает сообщение с сервера
+        
         Message GetMessage(int id)
         {
             try
@@ -100,9 +87,9 @@ namespace DotChatWF
                 return JsonConvert.DeserializeObject<Message>(smsg);
             }
             catch { return null; }
-
-
         } 
+
+
     private void btnAuth_Click(object sender, EventArgs e)
     {
         Port = TextPort.Text;
@@ -114,9 +101,7 @@ namespace DotChatWF
     }
 
     private void MainForm_Load(object sender, EventArgs e)
-    {
-        
-        
+    { 
         string Height1 = File.ReadLines("Config.Json").Skip(4).First();
         string Width1 = File.ReadLines("Config.Json").Skip(7).First();
         int W = Convert.ToInt32(Width1);
@@ -125,10 +110,8 @@ namespace DotChatWF
         
         int_token = 0;
         AuthForm = new AuthentificationForm();
-        RegForm = new RegistartionForm();
+        RegForm = new RegistrartionForm();
         TextBox_username = fieldUsername;
-        
-
 
     }
         public void CheckStatusOffline()
@@ -198,7 +181,7 @@ namespace DotChatWF
 
         private void MainFormClosed(object sender, FormClosedEventArgs e)
         {
-            
+            CheckStatusOffline();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -210,9 +193,6 @@ namespace DotChatWF
                     listMessages.Items.Clear();
                 }
             }
-
-            updateLoop_Tick(sender, e);
-  
         }
 
         private void TextPort_TextChanged(object sender, EventArgs e)

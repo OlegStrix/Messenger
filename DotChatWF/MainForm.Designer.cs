@@ -40,7 +40,7 @@
             this.btnAuth = new System.Windows.Forms.Button();
             this.btnReg = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
             this.TextPort = new System.Windows.Forms.TextBox();
             this.textIp = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -135,7 +135,6 @@
             // 
             this.updateLoop.Enabled = true;
             this.updateLoop.Interval = 600;
-            this.updateLoop.Tick += new System.EventHandler(this.updateLoop_Tick);
             // 
             // btnAuth
             // 
@@ -177,18 +176,18 @@
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // button1
+            // Delete
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(358, 367);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 26);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Delete.BackColor = System.Drawing.Color.Transparent;
+            this.Delete.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
+            this.Delete.Location = new System.Drawing.Point(358, 367);
+            this.Delete.Margin = new System.Windows.Forms.Padding(2);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(106, 26);
+            this.Delete.TabIndex = 9;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = false;
+            this.Delete.Click += new System.EventHandler(this.button1_Click);
             // 
             // TextPort
             // 
@@ -226,7 +225,7 @@
             this.ClientSize = new System.Drawing.Size(608, 407);
             this.Controls.Add(this.textIp);
             this.Controls.Add(this.TextPort);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Delete);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnReg);
             this.Controls.Add(this.btnAuth);
@@ -261,7 +260,7 @@
     private System.Windows.Forms.Button btnAuth;
     private System.Windows.Forms.Button btnReg;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.TextBox TextPort;
         private System.Windows.Forms.TextBox textIp;
     }

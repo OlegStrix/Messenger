@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace DotChatWF
 {
-  public partial class RegistartionForm : Form
+  public partial class RegistrartionForm : Form
   {
     public class AuthData
     {
@@ -22,7 +22,7 @@ namespace DotChatWF
     }
 
     public MainForm mForm;
-    public RegistartionForm()
+    public RegistrartionForm()
     {
       InitializeComponent();
     }
@@ -65,11 +65,11 @@ namespace DotChatWF
         {
           MessageBox.Show("A user with the same name already exists");
         }
-      }
+        }
         else
-      {
+        {
         MessageBox.Show("Incorrect password entered");
-      }
+        }
 
     }
 

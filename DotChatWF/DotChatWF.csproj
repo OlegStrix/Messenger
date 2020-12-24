@@ -67,11 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RegistartionForm.cs">
+    <Compile Include="RegistrartionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistartionForm.Designer.cs">
-      <DependentUpon>RegistartionForm.cs</DependentUpon>
+    <Compile Include="RegistrartionForm.Designer.cs">
+      <DependentUpon>RegistrartionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -103,8 +103,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RegistartionForm.resx">
-      <DependentUpon>RegistartionForm.cs</DependentUpon>
+    <EmbeddedResource Include="RegistrartionForm.resx">
+      <DependentUpon>RegistrartionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
